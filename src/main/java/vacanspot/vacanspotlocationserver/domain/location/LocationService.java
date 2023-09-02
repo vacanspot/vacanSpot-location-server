@@ -31,8 +31,8 @@ public class LocationService {
                 .stream()
                 .findFirst()
                 .orElseThrow()
-                .getRoadAddress()
-                .getAddressName();
+                .getAddress()
+                .getRegion3depthName();
     }
 
 }
