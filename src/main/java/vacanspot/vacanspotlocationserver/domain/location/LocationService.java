@@ -1,5 +1,6 @@
 package vacanspot.vacanspotlocationserver.domain.location;
 
+import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import vacanspot.vacanspotlocationserver.domain.location.dto.request.KakaoLocationRequest;
@@ -12,7 +13,8 @@ public class LocationService {
     private final LocationClient locationClient;
 
     public KakaoLocationResponse getKakaoLocation (
-            final KakaoLocationRequest kakaoLocationRequest) {
+            final KakaoLocationRequest kakaoLocationRequest
+    ) {
         return locationClient.getKakaoLocationResponse(
                 "KakaoAK 054d2946ed830d1aaefa4b0c41bc058f",
                 kakaoLocationRequest.getLocationX(),
@@ -20,4 +22,17 @@ public class LocationService {
                 "WGS84"
         );
     }
+
+    public String getLocationKeyword(
+            final KakaoLocationRequest kakaoLocationRequest
+    ) {
+        return getKakaoLocation(kakaoLocationRequest)
+                .getDocuments()
+                .stream()
+                .findFirst()
+                .orElseThrow()
+                .getRoadAddress()
+                .getAddressName();
+    }
+
 }

@@ -16,4 +16,5 @@ public interface LocationClient {
             @RequestParam("input_coord") String inputCoordinate
     );
 
+
 }

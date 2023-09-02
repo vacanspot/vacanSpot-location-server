@@ -67,4 +67,6 @@ public class KakaoLocationResponse {
         private String buildingName;
         private String zoneNo;
     }
+
+
 }

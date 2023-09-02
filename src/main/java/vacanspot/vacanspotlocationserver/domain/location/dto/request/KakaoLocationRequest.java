@@ -17,4 +17,14 @@ public record KakaoLocationRequest(
     @Param("input_coord")
     public String getInputCoordinate() { return inputCoordinate; }
 
+    public static KakaoLocationRequest of(
+            final String x,
+            final String y
+    )  {
+        return KakaoLocationRequest.builder()
+                .x(x)
+                .y(y)
+                .build();
+    }
+
 }

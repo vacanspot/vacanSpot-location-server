@@ -6,8 +6,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import vacanspot.vacanspotlocationserver.domain.location.dto.request.KakaoLocationRequest;
 import vacanspot.vacanspotlocationserver.domain.location.dto.response.KakaoLocationResponse;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 class LocationServiceTest {
 
